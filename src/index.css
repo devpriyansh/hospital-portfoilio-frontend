@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Base Resets ─── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  color: #334155;
+  background-color: #ffffff;
+  overflow-x: hidden;
+}
+
+/* ─── Custom Scrollbar ─── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F8FAFC;
+}
+::-webkit-scrollbar-thumb {
+  background: #0D9488;
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #0F766E;
+}
+
+/* ─── Text Selection ─── */
+::selection {
+  background-color: #0D9488;
+  color: #ffffff;
+}
+
+/* ─── Utility Classes ─── */
+@layer components {
+  .container-main {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-padding {
+    @apply py-20 md:py-28;
+  }
+
+  .btn-primary {
+    @apply bg-teal-600 text-white px-8 py-3 rounded-full font-semibold shadow-md
+           hover:bg-teal-700 hover:shadow-lg transition-all duration-200
+           focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2
+           inline-flex items-center gap-2;
+  }
+
+  .btn-secondary {
+    @apply border-2 border-teal-600 text-teal-600 px-8 py-3 rounded-full font-semibold
+           hover:bg-teal-50 transition-all duration-200
+           focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2
+           inline-flex items-center gap-2;
+  }
+
+  .btn-ghost {
+    @apply text-teal-600 font-semibold hover:text-teal-700 transition-colors duration-200
+           inline-flex items-center gap-1;
+  }
+
+  .card {
+    @apply bg-white rounded-2xl border border-gray-100 shadow-card
+           hover:shadow-card-hover transition-all duration-300;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 rounded-xl border border-gray-200
+           text-text-primary placeholder-text-muted
+           focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent
+           transition-all duration-200 bg-white;
+  }
+
+  .label {
+    @apply block text-sm font-semibold text-navy mb-1.5;
+  }
+
+  .tag {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold;
+  }
+}
+
+/* ─── Heartbeat Animation ─── */
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  14%       { transform: scale(1.15); }
+  28%       { transform: scale(1); }
+  42%       { transform: scale(1.1); }
+  56%       { transform: scale(1); }
+}
+.animate-heartbeat {
+  animation: heartbeat 2s ease-in-out infinite;
+}
+
+/* ─── Gradient text utility ─── */
+.gradient-text {
+  background: linear-gradient(135deg, #0D9488 0%, #C69B3B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Skeleton shimmer ─── */
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* ─── Smooth image load ─── */
+img {
+  transition: opacity 0.3s ease;
+}
