@@ -1,4 +1,4 @@
-const API_BASE_URL = 'https://hospital-portfoilio-backend.onrender.com'
+const API_BASE_URL = 'https://hospital-portfoilio-backend.onrender.com/api/v1'
 
 async function fetchApi(endpoint, options = {}) {
   const url = `${API_BASE_URL}${endpoint}`
